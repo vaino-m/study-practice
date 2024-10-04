@@ -46,7 +46,7 @@ process.stdin.on("data",function(inputFromUser) {
 });
 */
 
-// 4.3 Task 3: Average
+/* 4.3 Task 3: Average
 let aList = [];
 
 process.stdout.write("Give numbers to feed, 0 to exit: ")
@@ -63,27 +63,61 @@ process.stdin.on("data", function (inputFromUser) {
         process.exit();
     }
 });
+*/
 
-// 4.4 Task 4: Linear Search
+/* 4.4 Task 4: Linear Search
 
 let setList = [55, 23, 6456, 324, 21, 234, 72, 21];
 
 process.stdout.write("Give a number to search for: ")
 process.stdin.on("data", function (inputFromUser) {
     let givenNumber = inputFromUser;
+    let indexFound = 0;
         if (givenNumber.toString().trim() == "exit") {
             process.exit();
         } else {
             let fromList = 0;
             for (let i = 0; i <setList.length; i++) {
-                if (Number(givenNumber) = setList[i]) {
+                if (Number(givenNumber) == setList[i]) {
                     fromList = true;
+                    indexFound = i;
                 }
             }
             if (fromList) {
-                // write here
+                process.stdout.write(givenNumber.toString().trim() + " was found in index " + indexFound.toString());
+                process.exit();
             } else {
-                process.stdout.write("This number is not from the list.");
+                process.stdout.write(givenNumber.toString().trim() + " was not found in the list.");
+                process.exit();
             }
         }
 });
+
+*/
+
+// 4.5 Task 5: Smallest and Largest with Random Numbers
+
+let randNumbers = [];
+    for (i = 0;i < 100;i++) {
+        randNumbers.push(Math.round(Math.random()*1000));
+    }
+
+process.stdout.write("100 random numbers: " + randNumbers.join(", "));
+
+let biggestNumber = randNumbers[0];
+for (i = 0;i < 100;i++) {
+    if (randNumbers[i+1] > biggestNumber) {
+        biggestNumber = randNumbers[i+1];
+    }
+}
+
+process.stdout.write("\nBiggest number is: " + biggestNumber.toString());
+
+let smallestNumber = randNumbers[0];
+for (i = 0;i < 100;i++) {
+    if (randNumbers[i+1] < smallestNumber) {
+        smallestNumber = randNumbers[i+1];
+    }
+}
+
+process.stdout.write("\nSmallest number is: " + smallestNumber.toString());
