@@ -24,7 +24,9 @@ process.stdin.on("data", function (inputFromUser) {
         if (hitCount == 3) {
             process.stdout.write("\nIt took you " + shootCount + " shots to take out them all.")
             process.exit();
-        } else { process.stdout.write("\n" + infoText); }
+        } else { 
+            process.stdout.write("\n" + infoText); 
+        }
     } else {
         process.stdout.write("Not hit");
         shootCount = ++shootCount;
